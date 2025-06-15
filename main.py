@@ -1,9 +1,9 @@
 from flask import Flask,render_template,redirect,request,send_file
 from waitress import serve
-from DB.SignIn import signin
-from DB.logIn import login
+from app.DB.SignIn import signin
+from app.DB.logIn import login
 from bson import ObjectId
-from DB.upload.upload_PPTS import fs,db # this is your GridFS instance
+from app.DB.upload.upload_PPTS import fs,db # this is your GridFS instance
 import io
 from flask_cors import CORS
 
@@ -60,7 +60,7 @@ def list_pdfs():
     return render_template("list.html", files=files)
 
 # View PDF in browser
-@app.route("/view/<file_id>")
+@app.route("/app/view/<file_id>")
 def view_pdf(file_id):
     file = fs.get(ObjectId(file_id))
     return send_file(io.BytesIO(file.read()),
@@ -68,7 +68,7 @@ def view_pdf(file_id):
                     download_name=file.filename)
     
 # Download PDF
-@app.route("/download/<file_id>")
+@app.route("/app/download/<file_id>")
 def download_pdf(file_id):
     try:
         file = fs.get(ObjectId(file_id))
