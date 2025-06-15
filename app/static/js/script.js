@@ -85,7 +85,7 @@ function showTab(tabId, el) {
 
 // Inject navbar and footer into page
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/templates/includes/navbar.html')
+  fetch('/app/templates/includes/navbar.html')
     .then(res => res.text())
     .then(data => {
       document.getElementById('navbar-placeholder').innerHTML = data;
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-  fetch('/templates/includes/footer.html')
+  fetch('/app/templates/includes/footer.html')
     .then(res => res.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
