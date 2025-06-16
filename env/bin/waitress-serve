@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/media/goutam/projects/TechSite (1)/env/bin/python" "$0" "$@"
-' '''
+#!/media/goutam/projects/website/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

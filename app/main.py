@@ -5,9 +5,12 @@ from DB.logIn import login
 from bson import ObjectId
 from DB.upload.upload_PPTS import fs,db # this is your GridFS instance
 import io
+from flask_cors import CORS
 
 
 app=Flask("__main__")
+CORS(app)
+
 @app.route('/signin',methods=["POST","GET"]) # to update
 def Signin():
     if request.method=="POST":
