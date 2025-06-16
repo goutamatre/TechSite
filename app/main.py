@@ -99,4 +99,4 @@ def download_pdf(file_id):
         return "PDF not found", 404
     
 if __name__=="__main__":
-    serve(app,host='0.0.0.0', port=2000)
+    serve(app, host='0.0.0.0', port=10000)
