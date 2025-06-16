@@ -26,7 +26,7 @@ def Signin():
             return render_template('/signin.html',error=f"Error while signin: {e}")
             
         else:
-            return redirect('http://127.0.0.1:2000/login')
+            return redirect('https://techsite-vnu8.onrender.com/login')
             # return redirect(url_for('Login'))
             # return redirect('http://127.0.0.1:2000/')
             # return redirect('templates/index.html')
@@ -48,7 +48,7 @@ def Login():
             return render_template('login.html', error="Error in login")
         
         else:
-            return redirect('http://127.0.0.1:2000/login')
+            return redirect('https://techsite-vnu8.onrender.com/login')
             # return render_template('login.html')
             # return redirect('http://127.0.0.1:2000/templates/index.html')
             # return redirect('templates/index.html')
