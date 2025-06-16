@@ -21,7 +21,7 @@ def Signin():
 
         try:
             signin(user_name,user_password,email)
-            print(f"username:{user_name}, pass:{user_password}, email:{email}")
+            # print(f"username:{user_name}, pass:{user_password}, email:{email}")
         except Exception as e:  
             return render_template('/signin.html',error=f"Error while signin: {e}")
             
@@ -48,8 +48,9 @@ def Login():
             return render_template('login.html', error="Error in login")
         
         else:
+            return redirect('http://127.0.0.1:2000/login')
             # return render_template('login.html')
-            return redirect('http://127.0.0.1:2000/templates/index.html')
+            # return redirect('http://127.0.0.1:2000/templates/index.html')
             # return redirect('templates/index.html')
         
     else:
@@ -68,9 +69,9 @@ def Login():
 #         })
 #     return files
 
-@app.route('/')
-def index():
-    return render_template("index.html")
+# @app.route('/')
+# def index():
+#     return render_template("index.html")
 
 @app.route('/list')
 def list_pdfs():
