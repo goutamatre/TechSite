@@ -6,14 +6,22 @@ import gridfs
 app = Flask(__name__)
 
 # MongoDB connection
-with open("/home/tanisha/Downloads/TechSite (1)/app/DB/my_credentials", "r") as file:
+with open("/media/goutam/projects/TechSite (1)/app/DB/my_credentials", "r") as file:
     username = file.readline().strip()
     password=file.readline().strip()
 
-client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/")
+    # print(f"Username: {username}, Password: {password}")
+    client=MongoClient(f"mongodb+srv://{username}:{password}@cluster0.byjpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    
+    # client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/")
+    # client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/?retryWrites=true&w=majority&tls=true")
+
 
 db = client["pdf_database"]
 fs = gridfs.GridFS(db)
+
+# content = gridfs.GridFS(db).find_one().read()
+# print("content found")
 
 @app.route("/upload", methods=["POST","GET"])
 def upload_pdf():

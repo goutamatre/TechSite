@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,request,send_file
+from flask import Flask,render_template,redirect,request,send_file, url_for
 from waitress import serve
 from DB.SignIn import signin
 from DB.logIn import login
@@ -15,14 +15,18 @@ def Signin():
         user_name=request.form.get('name')
         user_password=request.form.get('password')
         email=request.form.get('email')
-    
+
         try:
             signin(user_name,user_password,email)
-        except Exception as e:
-            return render_template('signin.html',error=f"Error while signin: {e}")
+            print(f"username:{user_name}, pass:{user_password}, email:{email}")
+        except Exception as e:  
+            return render_template('/signin.html',error=f"Error while signin: {e}")
             
         else:
-            return redirect('http://127.0.0.1:5500/templates/index.html')
+            return redirect('http://127.0.0.1:2000/login')
+            # return redirect(url_for('Login'))
+            # return redirect('http://127.0.0.1:2000/')
+            # return redirect('templates/index.html')
           
         # http://127.0.0.1:5500/templates/index.html
     
@@ -41,7 +45,9 @@ def Login():
             return render_template('login.html', error="Error in login")
         
         else:
-            return redirect('http://127.0.0.1:5500/templates/index.html')
+            # return render_template('login.html')
+            return redirect('http://127.0.0.1:2000/templates/index.html')
+            # return redirect('templates/index.html')
         
     else:
         return render_template('login.html')
@@ -58,6 +64,10 @@ def Login():
 #             "filename": file_doc["filename"]
 #         })
 #     return files
+
+@app.route('/')
+def index():
+    return render_template("index.html")
 
 @app.route('/list')
 def list_pdfs():
