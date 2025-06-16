@@ -6,12 +6,12 @@ import gridfs
 app = Flask(__name__)
 
 # MongoDB connection
-with open("DB/my_credentials", "r") as file:
+with open("app/DB/my_credentials", "r") as file:
     username = file.readline().strip()
     password=file.readline().strip()
 
     # print(f"Username: {username}, Password: {password}")
-    client=MongoClient(f"mongodb+srv://{username}:{password}@cluster0.byjpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    client=MongoClient(f"mongodb+srv://Goutam:19221879@cluster0.byjpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     
     # client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/")
     # client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/?retryWrites=true&w=majority&tls=true")
