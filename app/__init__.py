@@ -1,7 +1,7 @@
 from flask import Flask
 from app.db import mongo  # from db.py
 
-with open("/media/goutam/projects/TechSite (1)/app/DB/my_credentials", "r") as file:
+with open("DB/my_credentials", "r") as file:
     username = file.readline().strip()
     password=file.readline().strip()
 
