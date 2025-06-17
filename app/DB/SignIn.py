@@ -1,8 +1,8 @@
 from pymongo import MongoClient
 
-with open("app/DB/my_credentials", "r") as file:
-    username = file.readline().strip()
-    password=file.readline().strip()
+# with open("app/DB/my_credentials", "r") as file:
+#     username = file.readline().strip()
+#     password=file.readline().strip()
 # client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/")
 # client=MongoClient(f"mongodb+srv://{username}:{password}@cluster0.byjpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 client=MongoClient(f"mongodb+srv://Goutam:19221879@cluster0.byjpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
