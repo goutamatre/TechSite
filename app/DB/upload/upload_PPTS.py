@@ -5,11 +5,13 @@ import gridfs
 
 app = Flask(__name__)
 
-with open("/home/tanisha/Downloads/deployment_tech/app/DB/my_credentials", "r") as file:
+with open("DB/my_credentials", "r") as file:
     username = file.readline().strip()
     password=file.readline().strip()
 
-client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/")
+# client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.xnjfjzj.mongodb.net/"
+client=MongoClient( f"mongodb+srv://{username}:{password}@cluster0.byjpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
 db = client["pdf_database"]
 fs = gridfs.GridFS(db)
 
